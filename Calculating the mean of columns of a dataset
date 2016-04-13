@@ -2,7 +2,7 @@ columnmean<-function(x){
   num_of_columns<-ncol(x)
   means<-numeric(num_of_columns)
   for(i in 1:num_of_columns){
-    means[i]<-mean(x[,i],na.rm = TRUE)    # mean of ith column and all the rows 
+    means[i]<-mean(x[,i],na.rm = TRUE)    # mean of all the rows of the ith column 
     #removing the nas present in the data
   }
   means
