@@ -1,0 +1,5 @@
+above_n<-function(x,n){    
+  #Subsetting x above n
+  # x can be a vector or a numeric value
+  x[x>n]
+}
