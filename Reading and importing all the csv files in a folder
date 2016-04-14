@@ -1,4 +1,4 @@
-setwd("E:/Important/R/R-material/Course2/specdata")
+setwd("E:/Important/R/R-material/Course2/specdata")  ## the working directory should be the folder containing all the csv files 
 files=list.files(pattern=".csv")
 
 for(i in 1:length(files))
