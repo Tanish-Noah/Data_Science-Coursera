@@ -1,0 +1,9 @@
+setwd("E:/Important/R/R-material/Course2/specdata")
+files=list.files(pattern=".csv")
+
+for(i in 1:length(files))
+{
+  filename=files[i]
+  data=read.csv(file = filename,header = T)
+  assign(x = filename,value = data)
+}
