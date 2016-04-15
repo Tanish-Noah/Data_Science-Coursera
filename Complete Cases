@@ -1,0 +1,13 @@
+## Reading multiple excel files in a directory and displaying the number of complete cases
+## in the files entered by the user
+## complete function
+## input1------complete("specdata", 1)
+## input2------complete("specdata", c(2, 4, 8, 10, 12))
+
+
+
+complete <- function(directory, id = 1:332) {
+  count_complete <- function(fname) sum(complete.cases(read.csv(fname)))
+  fnames <- list.files(directory, full.names=TRUE)[id]
+  data.frame(id = id, complete = unlist(lapply(fnames, count_complete)))
+}
