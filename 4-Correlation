@@ -1,4 +1,8 @@
 
+## A directory has 332 csv files. 
+##Calculating the correlation between two columns present in all the csv files if the number of complete observations
+##in each individual files is greater than a threshold entered by the user
+
 
 corr <- function(directory, threshold = 0) {
   ## 'directory' is a character vector of length 1 indicating the location of
