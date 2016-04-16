@@ -4,10 +4,32 @@
 ## input1------complete("specdata", 1)
 ## input2------complete("specdata", c(2, 4, 8, 10, 12))
 
-
-
+####Solution---
 complete <- function(directory, id = 1:332) {
   count_complete <- function(fname) sum(complete.cases(read.csv(fname)))
   fnames <- list.files(directory, full.names=TRUE)[id]
   data.frame(id = id, complete = unlist(lapply(fnames, count_complete)))
+}
+
+
+
+#####INPUT3----
+
+> ##set.seed(42)
+> ##cc <- complete("specdata", 332:1)
+> ##use <- sample(332, 10)
+> ##print(cc[use, "nobs"])
+
+###solution---
+complete <- function(directory, id = 1:332) {
+  # list files
+  files_full <- list.files(directory, full.names = TRUE)
+  files_toread <- files_full[id] # filter out unwanted files (tip: ?grep is better)
+  output <- data.frame(id = id, nobs = 0)
+  for (i in id) { 
+    tmp <- read.csv(files_toread[i]) # read the data
+    nobs <- sum(complete.cases(tmp)) # number of complete cases
+    output[i, "nobs"] <- nobs
+  }
+  output
 }
